@@ -4,8 +4,46 @@
 	<title>Customer</title>
 	<input type="button" value="Login" style="float: right;">
 	
+	
+	
+	
+	
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/2233/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Review Submitted")
+        },
+        error: function(){
+          alert("There was an error")
+        }
+    });
+}
+</script>
+	
+	
+	
+	
 </head>
 <body>
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
 	
 	<h1><center>Customer Page</center></h1>
 	<hr>
@@ -18,6 +56,34 @@
   <input type="text" placeholder="Search..">
 </div> 
 		
+	
+	
+	
+	<form id="myForm">
+    <label>Worker's name</label>
+    <br/>
+    <input name="Worker_Name" />
+   
+    <br/>
+    <label>Rating</label>
+    <br/>
+    <input type="radio" id="Rating" name="Rating" value="5" /> 5<br/>
+    <input type="radio" id="Rating" name="Rating" value="4" /> 4<br/>
+    <input type="radio" id="Rating" name="Rating" value="3" /> 3<br/>
+	<input type="radio" id="Rating" name="Rating" value="2" /> 2<br/>
+    <input type="radio" id="Rating" name="Rating" value="1" /> 1<br/>
+   <br/>
+    <label>Additional Feedback</label>
+    <br/>
+    <textarea name="Additional_Feedback">
+    </textarea>
+    <br/>
+    <br/>
+  </form>
+  <button onclick="SubForm()">Submit</button>
+	
+	
+	
 	
 		<style>
 /* Add a black background color to the top navigation bar */
@@ -73,5 +139,12 @@
     border: 1px solid #ccc;
   }
 }		
+
+
+
+
+
+
+
 </body>
 </html>
