@@ -74,8 +74,28 @@
     border: 1px solid #ccc;
   }
 }		
+</style>
+
+
+<p> Reviews: <span id="first"> </span><br />
+
+	<script >
 	
+		const api_url = "https://api.apispreadsheets.com/data/2233/";
+		
+		async function getISS(){
+			const response = await fetch(api_url);
+			const data = await response.json();
+			const first = data.toString();
+			document.getElementById('first').textContent = data;
+			console.log(data);
+		}
 	
+		
+		getISS();
+		
+	
+	</script>
 	
 	
 </body>
