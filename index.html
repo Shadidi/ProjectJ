@@ -1,43 +1,59 @@
-<!-- Version 2.4 -->
-
 <html>
 	<head>
 		<title>Handyman</title>
+		<style type="text/css">
+
+		#Handy{
+		text-align: center;
+		padding-top: 20px;	
+		}
+		#Cust{
+		text-align: center;
+		padding-top: 20px;
+		}
 		
+		h2 {
+		text-align: center;
+		color: #800000;
+		padding-top: 50px;
+		}
+
+		h2.solid {
+		border-style: hidden hidden solid hidden;
+		border-width: 3.5px;
+		margin: 0px 0px 20px 0px;
+		}
+		body {
+		background-size:cover;
+		background-color: #A52A2A;
+		background-image: url(Images/Toolz.jpg);
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		}
+		#Logo {
+		padding-top: 25px;
+		padding-left: 25px;
+		}
+		</style>
 	</head>
 
 	<body>
-		<img src="images/HandymanLogo.gif" width=30% alt="logo" />
-		<h1><center>Welcome to the Handyman Website</center></h1>
-		
-		<h3><center>Please select your role to be guided to the appropriate resources<br /></center></h3>
-		<hr />
-		
-		
-	<style type="text/css">
-#element1 {padding-left : 45%; float:left;}
-#element2 {padding-right: 45%; float:right;}
-</style>
-
-<div id="element1">
-		<form action="pages/Hhome.html">
-			<input type="submit"  value="Handyman" />
-		</form>
-</div>
-<div id="element2">
-		<form action="pages/Chome.html">
-			<input type="submit" value="Customer" />
-		</form>
-</div>
-
+		<a href = "index.html">
+		<img src ="Images/Logo.png" id ="Logo" alt ="" height = 100 width = 200>
+		</a>	
+		<h2 class ="solid"> Welcome to the Handyman Website</h1>
+		<div id="Handy">
+			<form action="pages/Hhome.html">
+				<input type="submit"  value="Handyman" />
+			</form>
+		</div>
+		<div id ="Cust">
+			<form action="pages/Chome.html">
+				<input type="submit" value="Customer" />
+			</form>
+		</div>
 	
-	
-	
-		
-		
-		
-		
-
-	
-	</body>
+</body>
 </html>
