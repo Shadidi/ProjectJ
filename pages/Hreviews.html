@@ -99,14 +99,14 @@
 	  editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
 	  myString = myString.slice(myString.indexOf("}")+1);
 	  while (myString.indexOf("{") >= 0){
-		editedString = editedString + "<br>" + myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
+		editedString = editedString + "<br><br>" + myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
 		myString = myString.slice(myString.indexOf("}")+1);
 	  }
 	  while (editedString.indexOf("\"") >= 0){
 		editedString = editedString.replace("\"", " ");
 	  }
 	  while (editedString.indexOf(" , ") >= 0){
-		editedString = editedString.replace(" , ", ",\t");
+		editedString = editedString.replace(" , ", "<br>");
 	  }
 	  
 	  //var editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
