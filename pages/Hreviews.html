@@ -21,6 +21,9 @@
 
 	
 		<style>
+		
+		
+		
 /* Add a black background color to the top navigation bar */
 .topnav {
   overflow: hidden;
@@ -95,14 +98,18 @@
 	  
 	  editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
 	  myString = myString.slice(myString.indexOf("}")+1);
-	  while (myString.indexOf("{") > 0){
+	  while (myString.indexOf("{") >= 0){
 		editedString = editedString + "<br>" + myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
-		myString = myString.slice(myString.indexOf("}")+1)
+		myString = myString.slice(myString.indexOf("}")+1);
+	  }
+	  while (editedString.indexOf("\"") >= 0){
+		editedString = editedString.replace("\"", " ");
+	  }
+	  while (editedString.indexOf(" , ") >= 0){
+		editedString = editedString.replace(" , ", ",\t");
 	  }
 	  
 	  //var editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
-	  
-	  
 	  
       document.getElementById("first").innerHTML = editedString;
 	  
