@@ -3,26 +3,51 @@
 		<title>Handyman</title>
 		<style type="text/css">
 
-		#Handy{
-		text-align: center;
-		padding-top: 20px;	
+		.Handy{
+		overflow: hidden;
+		background-color: #800000;
+		border: 3.5px solid black;
 		}
-		#Cust{
+		.Handy a{
 		text-align: center;
-		padding-top: 20px;
+		padding: 14px 16px;
+ 		float: center;
+  		display: block;
+  		color: white;
+  		font-size: 20px;
+		font-weight: bold;
+		text-decoration: none;
 		}
+
+		.Cust {
+		overflow: hidden;
+		background-color: #800000;
+		border: 3.5px solid black;
 		
+		}
+		.Cust a {
+		text-align: center;
+		padding: 14px 16px;
+ 		float: center;
+  		display: block;
+  		color: white;
+  		font-size: 20px;
+		font-weight: bold;
+		text-decoration: none;	
+		}
+
 		h2 {
 		text-align: center;
 		color: #800000;
-		padding-top: 50px;
+		padding-top: 20px;
+		font-size: 35px;
 		}
 
 		h2.solid {
-		border-style: hidden hidden solid hidden;
 		border-width: 3.5px;
 		margin: 0px 0px 20px 0px;
 		}
+
 		body {
 		background-size:cover;
 		background-color: #A52A2A;
@@ -43,16 +68,16 @@
 		<a href = "index.html">
 		<img src ="images/Logo.png" id ="Logo" alt ="" height = 100 width = 200>
 		</a>	
-		<h2 class ="solid"> Welcome to the Handyman Website</h1>
-		<div id="Handy">
-			<form action="pages/Hhome.html">
-				<input type="submit"  value="Handyman" />
-			</form>
-		</div>
-		<div id ="Cust">
-			<form action="pages/Chome.html">
-				<input type="submit" value="Customer" />
-			</form>
+
+		<h2 class ="solid">HandyMan</h2>
+
+		<div class ="HandyCust">
+			<div class = "Cust">
+				<a href = "pages/Chome.html">Customer</a>
+			</div>
+			<div class = "Handy">
+				<a href = "pages/Happly.html">Worker</a>
+			</div>
 		</div>
 	
 </body>
