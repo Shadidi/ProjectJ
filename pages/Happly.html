@@ -2,22 +2,25 @@
 <html>
 <head>
 
-	<a href="form.html"><input type="button" value="Login" style="float: right;"></a>
+	
 	<title>Worker</title>
-
+	<h1>
+	<a href = "..\index.html">	
+	<img src = "..\images\Logo.png" 
+	id = "Logo" alt="" height = 100 width = 200>
+	</a></h1>
 </head>
 <body>
 
-	<h1><center>Worker page</center></h1>
+	<h2><center>Worker</center></h2>
 	<hr>
 
 	 <div class="topnav">
-  <a href="Hhome.html">Home</a>
-  <a href="Hmessages.html">Messages</a>
-  <a href="Hreviews.html">Read Reviews</a>
-  <a class="active" href="Happly.html">Apply</a>
-  <input type="text" placeholder="Search..">
-</div>
+  		<a href="Hhome.html">Home</a>
+  		<a href="Hreviews.html">Read Reviews</a>
+  		<a class="active" href="Happly.html">Apply</a>
+		<a href="form.html">Login</a>
+	</div>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOXk_Dp5ON7qGdHUfIsbGFn045AwmSCK2pX1cR2HvOqApKEg/viewform?embedded=true" 
 	width="640" height="3075" frameborder="0" marginheight="0" marginwidth="0" onload = "window.parent.scrollTo(0,0)">Loading…</iframe>
 
@@ -26,19 +29,22 @@
 <style>
 /* Add a black background color to the top navigation bar */
 .topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
+overflow: hidden;
+background-color: #800000;
+border: 2px solid black;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
+  border-right: 1px solid black;
+	
 }
 
 /* Change the color of links on hover */
@@ -48,20 +54,12 @@
 }
 
 /* Style the "active" element to highlight the current page */
+/* Not sure if should keep in or not */
 .topnav a.active {
   background-color: #2196F3;
   color: white;
 }
 
-/* Style the search box inside the navigation bar */
-.topnav input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-}
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
@@ -76,6 +74,18 @@
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
+}
+h2 {
+color: #800000;
+font-weight: bold;
+text-align:center;
+font-size: 30px;
+}
+body {
+background-image: url(../images/WoodFloor.jpg);
+border: 5px solid transparent;
+padding: 0px 20px 500px 20px;
+border-color:black;
 }
 
 </style>
