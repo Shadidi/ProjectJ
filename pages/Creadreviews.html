@@ -97,7 +97,7 @@ font-weight: light;
 <p style = "color: #800000; font-weight: bold">Reviews:<br/></p>
 <p><span id="first"> </span><br/>
 
-    <script>
+    <script >
 
         const api_url = "https://api.apispreadsheets.com/data/2233/";
     async function getISS(){
@@ -106,35 +106,57 @@ font-weight: light;
             // const first = data.toString();
             // document.getElementById('first').textContent = data;
             // console.log(data);
-          var myString = JSON.stringify(data);
+      var myString = JSON.stringify(data);
 	  
 	  myString = myString.substring(9, myString.length-2);
-	  var editedString = "<br>";
+	  var allReviews = ["<br>"];
 	  
-	  editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
+	  allReviews.push(myString.slice(myString.indexOf("{")+1, myString.indexOf("}")));
 	  myString = myString.slice(myString.indexOf("}")+1);
 	  while (myString.indexOf("{") >= 0){
-		editedString = editedString + "<br><br>" + myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
+		allReviews.push(myString.slice(myString.indexOf("{")+1, myString.indexOf("}")));
 		myString = myString.slice(myString.indexOf("}")+1);
 	  }
-	  while (editedString.indexOf("\"") >= 0){
-		editedString = editedString.replace("\"", " ");
+	  
+	  var i;
+	  for (i = 1; i < allReviews.length; i++){
+		var manip = allReviews[i];
+		var name = manip.substring(manip.indexOf("Name")+6,manip.indexOf("Additional")-2);
+		manip = manip.replace(name, "");
+		manip = manip.replace("\"Worker_Name\":,","");
+		manip = manip.replace("    ", "");
+		manip = name + ","+ manip
+		manip = manip.replace(":\"", ": ");
+		manip = manip.replace(":\"", ": ");
+		allReviews[i] = manip;
 	  }
-	  while (editedString.indexOf(" , ") >= 0){
-		editedString = editedString.replace(" , ", "<br>");
+	  
+	  allReviews.reverse();
+	  allReviews.pop();
+	  allReviews.sort();
+	  
+	  
+	  for (i = 0; i < allReviews.length; i++){
+		allReviews[i] = "Worker Name: " + allReviews[i];
+	  }
+	  
+	  var editedString = allReviews.join("<br><br>");
+	  
+	  while (editedString.indexOf("\"") >= 0){
+		editedString = editedString.replace("\"", "");
+	  }
+	  while (editedString.indexOf(",") >= 0){
+		editedString = editedString.replace(",", "<br>");
 	  }
 	  while (editedString.indexOf("_") >= 0){
 		editedString = editedString.replace("_", " ");
 	  }
 	  
-	  //var editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
 	  
 	  
+      document.getElementById("reviews").innerHTML = editedString;
 	  
-      document.getElementById("first").innerHTML = editedString;
-      //document.getElementById("first").style.color = "#800000" ;	  
-        
-}
+        }
     getISS();
 
 
