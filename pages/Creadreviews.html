@@ -16,7 +16,6 @@
 
 	 <div class="topnav">
   <a href="Chome.html">Home</a>
-  <a href="Cmessages.html">Messages</a>
   <a href="Csearchworkers.html">Search Workers</a>
   <a href="Creviews.html">Write Reviews</a>
   <a class="active"href="Creadreviews.html">Read Reviews</a>
@@ -90,16 +89,15 @@ padding: 0px 20px 500px 20px;
 border-color:black;
 }
 p {
-
 font-size: 30px;
 font-weight: light;
 }		
 </style>
 
-<p> Reviews:<br/>
-<p><span id="first"> </span><br />
+<p style = "color: #800000; font-weight: bold">Reviews:<br/></p>
+<p><span id="first"> </span><br/>
 
-    <script >
+    <script>
 
         const api_url = "https://api.apispreadsheets.com/data/2233/";
     async function getISS(){
@@ -108,7 +106,7 @@ font-weight: light;
             // const first = data.toString();
             // document.getElementById('first').textContent = data;
             // console.log(data);
-      var myString = JSON.stringify(data);
+          var myString = JSON.stringify(data);
 	  
 	  myString = myString.substring(9, myString.length-2);
 	  var editedString = "<br>";
@@ -134,8 +132,9 @@ font-weight: light;
 	  
 	  
       document.getElementById("first").innerHTML = editedString;
-	  
-        }
+      //document.getElementById("first").style.color = "#800000" ;	  
+        
+}
     getISS();
 
 
