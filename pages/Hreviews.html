@@ -109,29 +109,52 @@ font-weight: light;
       var myString = JSON.stringify(data);
 	  
 	  myString = myString.substring(9, myString.length-2);
-	  var editedString = "<br>";
+	  var allReviews = ["<br>"];
 	  
-	  editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
+	  allReviews.push(myString.slice(myString.indexOf("{")+1, myString.indexOf("}")));
 	  myString = myString.slice(myString.indexOf("}")+1);
 	  while (myString.indexOf("{") >= 0){
-		editedString = editedString + "<br><br>" + myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
+		allReviews.push(myString.slice(myString.indexOf("{")+1, myString.indexOf("}")));
 		myString = myString.slice(myString.indexOf("}")+1);
 	  }
-	  while (editedString.indexOf("\"") >= 0){
-		editedString = editedString.replace("\"", " ");
+	  
+	  var i;
+	  for (i = 1; i < allReviews.length; i++){
+		var manip = allReviews[i];
+		var name = manip.substring(manip.indexOf("Name")+6,manip.indexOf("Additional")-2);
+		manip = manip.replace(name, "");
+		manip = manip.replace("\"Worker_Name\":,","");
+		manip = manip.replace("    ", "");
+		manip = name + ","+ manip
+		manip = manip.replace(":\"", ": ");
+		manip = manip.replace(":\"", ": ");
+		allReviews[i] = manip;
 	  }
-	  while (editedString.indexOf(" , ") >= 0){
-		editedString = editedString.replace(" , ", "<br>");
+	  
+	  allReviews.reverse();
+	  allReviews.pop();
+	  allReviews.sort();
+	  
+	  
+	  for (i = 0; i < allReviews.length; i++){
+		allReviews[i] = "Worker Name: " + allReviews[i];
+	  }
+	  
+	  var editedString = allReviews.join("<br><br>");
+	  
+	  while (editedString.indexOf("\"") >= 0){
+		editedString = editedString.replace("\"", "");
+	  }
+	  while (editedString.indexOf(",") >= 0){
+		editedString = editedString.replace(",", "<br>");
 	  }
 	  while (editedString.indexOf("_") >= 0){
 		editedString = editedString.replace("_", " ");
 	  }
 	  
-	  //var editedString = myString.slice(myString.indexOf("{")+1, myString.indexOf("}"));
 	  
 	  
-	  
-      document.getElementById("first").innerHTML = editedString;
+      document.getElementById("reviews").innerHTML = editedString;
 	  
         }
     getISS();
